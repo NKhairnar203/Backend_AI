@@ -22,7 +22,7 @@ server.use(morgan("dev"));
 server.use(express.urlencoded({ extended: true }));
 server.use(
   cors({
-    origin: ["https://thinkai-nvcr94pcv-nkhairnar203s-projects.vercel.app"],
+    origin: ["https://thinkai-bot.vercel.app"],
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   })
