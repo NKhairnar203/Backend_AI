@@ -20,7 +20,13 @@ server.use(bodyParser.urlencoded({ extended: true }));
 server.use(cookieParser());
 server.use(morgan("dev"));
 server.use(express.urlencoded({ extended: true }));
-server.use(cors({ origin: "https://thinkai-bot.vercel.app" }));
+server.use(
+  cors({
+    origin: ["https://thinkai-bot.vercel.app"],
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
+  })
+);
 
 server.get("/", (req, res) => {
   res.send("Hello World");
