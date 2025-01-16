@@ -4,14 +4,14 @@ import cors from "cors";
 import morgan from "morgan";
 import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
+import connect from "./database/db.js";
 dotenv.config({});
 
-import connectDB from "./database/db.js";
 import userRoute from "./routes/user.routes.js";
 import aiRoute from "./routes/ai.routes.js";
-connectDB();
 
 const Port = process.env.PORT || 3001;
+connect();
 
 const server = express();
 
