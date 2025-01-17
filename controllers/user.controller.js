@@ -61,11 +61,20 @@ export const loginController = async (req, res) => {
   }
 };
 
-
 export const profileController = async (req, res) => {
-  res.status(200).json({
-    user: req.user,
-  });
+  try {
+    // console.log(req.user.email);
+    // const email = req.user.email;
+    // const user = await userModel.find({ email: email }).select("-password");
+    // console.log(user);
+     res.status(200).json({
+       user: req.user,
+     });
+    // res.status(200).json({ user: user.email });
+  } catch (err) {
+    console.log(err);
+    res.status(400).send(err.message);
+  }
 };
 
 export const logoutController = async (req, res) => {
@@ -82,7 +91,3 @@ export const logoutController = async (req, res) => {
     res.status(400).send(err.message);
   }
 };
-
-
-
-
